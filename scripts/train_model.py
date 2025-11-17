@@ -18,9 +18,7 @@ from utils import per_class_metrics
 LABEL_ORDER = ["Hypopnea", "Obstructive Apnea", "Normal"]
 
 
-# -----------------------------
 # Dataset
-# -----------------------------
 class WindowDataset(Dataset):
     def __init__(self, X, y):
         self.X = X
@@ -33,9 +31,7 @@ class WindowDataset(Dataset):
         return torch.tensor(self.X[idx], dtype=torch.float32), int(self.y[idx])
 
 
-# -----------------------------
 # Training
-# -----------------------------
 def train_epoch(model, loader, loss_fn, optim, device):
     model.train()
     total = 0
@@ -49,10 +45,7 @@ def train_epoch(model, loader, loss_fn, optim, device):
         total += loss.item()
     return total / len(loader)
 
-
-# -----------------------------
 # Evaluation
-# -----------------------------
 def eval_model(model, loader, device):
     model.eval()
     preds, trues = [], []
@@ -64,10 +57,7 @@ def eval_model(model, loader, device):
             trues.append(y.numpy())
     return np.concatenate(trues), np.concatenate(preds)
 
-
-# -----------------------------
 # Confusion Matrix Plot
-# -----------------------------
 def save_confusion_matrix(y_true, y_pred, classes, outpath):
     cm = confusion_matrix(y_true, y_pred)
     fig = plt.figure(figsize=(6, 6))
@@ -76,7 +66,6 @@ def save_confusion_matrix(y_true, y_pred, classes, outpath):
     plt.xticks(range(len(classes)), classes, rotation=45)
     plt.yticks(range(len(classes)), classes)
 
-    # Write values inside cells
     for i in range(len(classes)):
         for j in range(len(classes)):
             plt.text(j, i, str(cm[i, j]), ha="center", va="center")
@@ -86,10 +75,7 @@ def save_confusion_matrix(y_true, y_pred, classes, outpath):
     fig.savefig(outpath)
     plt.close(fig)
 
-
-# -----------------------------
 # Metrics Printer
-# -----------------------------
 def print_metrics(all_fold_metrics):
     print("\n=== METRICS SUMMARY ===\n")
 
@@ -112,10 +98,7 @@ def print_metrics(all_fold_metrics):
     print("Recall:", np.round(mean_recall, 3))
     print("Specificity:", np.round(mean_specific, 3))
 
-
-# -----------------------------
 # Main (LOSO CV)
-# -----------------------------
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-dataset", default="Dataset/breathing_windows.npz")

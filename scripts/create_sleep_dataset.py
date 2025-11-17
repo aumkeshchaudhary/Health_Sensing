@@ -1,10 +1,4 @@
 #!/usr/bin/env python3
-"""
-Create sleep-stage dataset:
-- 30s windows with 50% overlap
-- Label windows using >50% stage overlap
-- Works for all AP01–AP05 sleep profile formats
-"""
 
 import sys, os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -18,9 +12,6 @@ from utils import read_psg_signal, window_times
 SLEEP_LABELS = ["Wake", "REM", "N1", "N2", "N3"]
 
 
-# ---------------------------------------------------------
-# UNIVERSAL SLEEP PROFILE PARSER (WORKS FOR AP02!)
-# ---------------------------------------------------------
 def read_sleep_profile(path):
     """
     Handles:
@@ -29,9 +20,6 @@ def read_sleep_profile(path):
     - Sampled lines:     "timestamp; stage" (AP02 format)
     """
 
-    # ---------------------------------------------
-    # TRY CSV FORMAT FIRST
-    # ---------------------------------------------
     try:
         df = pd.read_csv(path)
         cols = [c.lower() for c in df.columns]
@@ -50,11 +38,9 @@ def read_sleep_profile(path):
                 return df
 
     except Exception:
-        pass  # fallback to manual parser
-
-    # ---------------------------------------------
+        pass 
+        
     # MANUAL LINE PARSER FOR AP02 / AP03 / AP04
-    # ---------------------------------------------
     events = []
     with open(path, "r") as f:
         lines = f.readlines()
@@ -76,17 +62,12 @@ def read_sleep_profile(path):
             data_started = True
             continue
 
-        # ignore header junk until real data
         if not data_started:
-            # But AP02 does NOT show "Data:", so detect stage lines:
             if ";" in line:
                 data_started = True
             else:
                 continue
 
-        # ---------------------------------------------
-        # TYPE A — interval:  "start-end; stage"
-        # ---------------------------------------------
         if ";" in line and "-" in line:
             try:
                 timepart, stage = line.split(";", 1)
@@ -108,11 +89,6 @@ def read_sleep_profile(path):
             except:
                 pass
 
-        # ---------------------------------------------
-        # TYPE B — AP02 format:
-        #           "timestamp; Stage"
-        # Duration = 30 seconds from Rate: 30s
-        # ---------------------------------------------
         if ";" in line and "-" not in line:
             try:
                 time_s, stage_s = line.split(";", 1)
@@ -140,9 +116,6 @@ def read_sleep_profile(path):
     return df
 
 
-# ---------------------------------------------------------
-# LABEL WINDOWS BY SLEEP STAGE
-# ---------------------------------------------------------
 def label_window_by_sleep(ws, we, sleep_df):
     duration = (we - ws).total_seconds()
 
@@ -162,9 +135,6 @@ def label_window_by_sleep(ws, we, sleep_df):
     return None
 
 
-# ---------------------------------------------------------
-# PROCESS ONE PARTICIPANT
-# ---------------------------------------------------------
 def process_participant(folder):
     na = read_psg_signal(os.path.join(folder, "nasal_airflow.txt"))
     th = read_psg_signal(os.path.join(folder, "thoracic_movement.txt"))
@@ -209,9 +179,6 @@ def process_participant(folder):
     return X, Y, META
 
 
-# ---------------------------------------------------------
-# MAIN
-# ---------------------------------------------------------
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-in_dir", required=True)

@@ -3,9 +3,7 @@ import pandas as pd
 from scipy.signal import butter, filtfilt
 from sklearn.metrics import confusion_matrix
 
-# -------------------------------
 # Parsing PSG continuous signals
-# -------------------------------
 def read_psg_signal(path):
     """
     Reads files like:
@@ -33,7 +31,7 @@ def read_psg_signal(path):
             continue
 
         ts_str, value_str = line.split(";")
-        ts_str = ts_str.strip().replace(",", ".")  # convert comma ms to dot
+        ts_str = ts_str.strip().replace(",", ".") 
         value_str = value_str.strip()
 
         try:
@@ -46,10 +44,7 @@ def read_psg_signal(path):
 
     return pd.Series(values, index=pd.to_datetime(timestamps))
 
-
-# -------------------------------
 # Parsing flow events
-# -------------------------------
 def read_flow_events(path):
     """
     Format:
@@ -67,7 +62,6 @@ def read_flow_events(path):
 
                 # normalize timestamps
                 start = pd.to_datetime(start_str.strip().replace(",", "."), format="%d.%m.%Y %H:%M:%S.%f")
-                # end string has no date -> use same date as start
                 end = pd.to_datetime(
                     start_str[:10].replace(".", "-") + " " + end_str.strip().replace(",", "."),
                     format="%d-%m-%Y %H:%M:%S.%f"
@@ -83,19 +77,13 @@ def read_flow_events(path):
     df = pd.DataFrame(events, columns=["start", "end", "event"])
     return df
 
-
-# -------------------------------
 # Bandpass filter
-# -------------------------------
 def bandpass_filter(signal, fs, lowcut=0.1, highcut=0.8, order=4):
     nyq = 0.5 * fs
     b, a = butter(order, [lowcut/nyq, highcut/nyq], btype='band')
     return pd.Series(filtfilt(b, a, signal.values), index=signal.index)
 
-
-# -------------------------------
 # Window helper
-# -------------------------------
 def window_times(start_ts, window_sec=30, step_sec=15, total_seconds=None):
     end_ts = start_ts + pd.Timedelta(seconds=int(total_seconds))
     windows = []
@@ -105,10 +93,7 @@ def window_times(start_ts, window_sec=30, step_sec=15, total_seconds=None):
         cur += pd.Timedelta(seconds=step_sec)
     return windows
 
-
-# -------------------------------
 # Metrics
-# -------------------------------
 def per_class_metrics(y_true, y_pred, labels):
     cm = confusion_matrix(y_true, y_pred, labels=labels)
     TP = np.diag(cm).astype(float)

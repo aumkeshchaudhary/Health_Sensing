@@ -1,17 +1,4 @@
 #!/usr/bin/env python3
-"""
-Train sleep-stage classifier:
-
-Models:
-- cnn
-- conv_lstm
-- transformer
-
-Evaluation:
-- LOSO (Leave-One-Participant-Out)
-- Saves per-fold confusion matrices
-- Saves per-fold metrics into CSV
-"""
 
 import sys, os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -33,10 +20,7 @@ from models.transformer_model import Transformer1DModel
 # Metrics function
 from utils import per_class_metrics
 
-
-# ===========================================================
 # Dataset Class
-# ===========================================================
 class WindowDataset(Dataset):
     def __init__(self, X, y):
         self.X = X
@@ -48,10 +32,7 @@ class WindowDataset(Dataset):
     def __getitem__(self, idx):
         return torch.tensor(self.X[idx], dtype=torch.float32), int(self.y[idx])
 
-
-# ===========================================================
 # Training
-# ===========================================================
 def train_epoch(model, loader, optim, loss_fn, device):
     model.train()
     total = 0
@@ -65,10 +46,7 @@ def train_epoch(model, loader, optim, loss_fn, device):
         total += loss.item()
     return total / len(loader)
 
-
-# ===========================================================
 # Evaluation
-# ===========================================================
 def evaluate(model, loader, device):
     model.eval()
     preds, trues = [], []
@@ -80,12 +58,8 @@ def evaluate(model, loader, device):
             trues.append(y.numpy())
     return np.concatenate(trues), np.concatenate(preds)
 
-
-# ===========================================================
-# Confusion Matrix Plot (FULL FIXED VERSION)
-# ===========================================================
+# Confusion Matrix Plot
 def save_confusion_matrix(y_true, y_pred, classes, outpath):
-    # Force fixed-size confusion matrix even if some stages missing
     cm = confusion_matrix(y_true, y_pred, labels=list(range(len(classes))))
 
     fig = plt.figure(figsize=(7, 7))
@@ -104,10 +78,7 @@ def save_confusion_matrix(y_true, y_pred, classes, outpath):
     fig.savefig(outpath)
     plt.close(fig)
 
-
-# ===========================================================
 # Main training pipeline
-# ===========================================================
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-dataset", default="Dataset/sleep_windows.npz")
@@ -135,9 +106,6 @@ def main():
 
     unique_classes = sorted(list(set(y_raw)))
 
-    # --------------------------------------------------------
-    # FIX: Read class mapping file to get correct names
-    # --------------------------------------------------------
     mapping_file = "Dataset/sleep_label_mapping.txt"
     mapping = {}
     with open(mapping_file, "r") as f:
@@ -155,9 +123,7 @@ def main():
 
     os.makedirs("sleep_results", exist_ok=True)
 
-    # =======================================================
     # LOSO CV
-    # =======================================================
     for f in folds:
         print(f"\n=== Fold test participant = {f} ===")
 

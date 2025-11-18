@@ -159,9 +159,9 @@ The dataset is extremely imbalanced → models learn to predict Normal.
 | CNN       | ~91.7%       | 100%          | 0%              | 0%        |
 | Conv-LSTM | ~91.5%       | 100%          | 0%              | 0%        |
 
-✔ High accuracy
-✘ Poor clinical performance for minority classes
-✔ Needs re-sampling or class-weighted loss
+   ✔ High accuracy
+   ✘ Poor clinical performance for minority classes
+   ✔ Needs re-sampling or class-weighted loss
 
 ---
 ### Task 2 — Sleep Stage Classification

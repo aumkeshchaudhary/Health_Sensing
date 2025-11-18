@@ -58,9 +58,9 @@ We analyze three core biomarkers recorded during overnight polysomnography:
 
 | Signal | Description | Sampling Rate | Clinical Value |
 |--------|-------------|---------------|----------------|
-| **Nasal Airflow** | Respiratory flow via nasal cannula | 10 Hz | Primary apnea/hypopnea indicator |
-| **Thoracic Movement** | Chest expansion via inductance belt | 10 Hz | Effort detection & movement artifacts |
-| **SpO₂** | Blood oxygen saturation | 1 Hz | Hypoxemia during events |
+| **Nasal Airflow** | Respiratory flow via nasal cannula | 32 Hz | Primary apnea/hypopnea indicator |
+| **Thoracic Movement** | Chest expansion via inductance belt | 32 Hz | Effort detection & movement artifacts |
+| **SpO₂** | Blood oxygen saturation | 4 Hz | Hypoxemia during events |
 
 ### Annotations
 - **Breathing Events:** Apnea, hypopnea, normal breathing windows

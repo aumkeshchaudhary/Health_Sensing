@@ -18,8 +18,26 @@
 
 ## 🎯 Overview
 
-This project develops an end-to-end **sleep health analytics pipeline**, processing overnight physiological recordings to detect abnormal breathing patterns and classify sleep stages. Using state-of-the-art deep learning architectures, we analyze multimodal time-series data from 5 participants to enable clinical-grade sleep disorder screening.
+This project builds an end-to-end system for analyzing multi-modal physiological signals collected during overnight sleep sessions.
+It includes:
 
+- High-quality signal visualization
+
+- Noise cleaning & filtering
+
+- Dataset creation (windowing + label assignment)
+
+- Model training for:
+
+-- Breathing Disorder Detection (Hypopnea / Obstructive Apnea / Normal)
+
+-- Sleep Stage Classification (Wake, REM, N1, N2, N3)
+
+- Evaluation using Leave-One-Participant-Out (LOSO) cross-validation
+
+- Export of results, metrics, and confusion matrices
+
+The project is fully modular, script-based, and matches the requirements given in the task.
 ---
 
 ## ✨ Key Features

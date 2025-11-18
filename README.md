@@ -43,10 +43,10 @@ This project develops an end-to-end **sleep health analytics pipeline**, process
 - Cross-participant generalization testing
 
 ### 📈 Visualization Suite
-- Interactive signal plots
-- Confusion matrices
-- Training curves & loss landscapes
-- Clinical report generation
+- High-resolution physiological signal visualizations
+- Per-fold confusion matrices for all models
+- Cleaned and preprocessed datasets (windows + labels)
+
 
 ---
 

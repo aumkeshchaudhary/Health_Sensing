@@ -433,18 +433,7 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) for deta
 
 ---
 
-## 👥 Team
-
-**Developed by:** [Your Name]  
-**Affiliation:** DeepMedico™ Healthcare AI Division  
-**Contact:** your.email@deepmedico.com
-
----
 
 <div align="center">
-
-### ⭐ If this project helped your research, please consider starring it!
-
-**Made with ❤️ for better sleep health**
 
 </div>

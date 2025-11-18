@@ -92,9 +92,7 @@ Models implemented:
             │
             ├── Dataset/                       # Generated datasets (ignored in GitHub)
             │   ├── breathing_windows.npz
-            │   ├── breathing_labels.csv
-            │   ├── sleep_windows.npz
-            │   └── sleep_labels.csv
+            │   └── breathing_labels.csv
             │
             ├── scripts/                       # All executable Python scripts
             │   ├── vis.py                     # Visualization script for 8-hour plots

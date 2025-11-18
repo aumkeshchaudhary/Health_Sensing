@@ -70,6 +70,7 @@ We analyze three core biomarkers recorded during overnight polysomnography:
 ---
 
 ## 🏗️ Project Structure
+'''
 HealthSensingProject/
 │
 ├── Data/                          # Raw signals (not tracked in GitHub; large files)
@@ -122,7 +123,7 @@ HealthSensingProject/
 ├── .gitattributes                 # Git LFS configuration
 ├── requirements.txt               # Python dependencies
 └── README.md                      # Full project documentation
-
+'''
 
 ---
 

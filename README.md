@@ -398,32 +398,6 @@ Input (30s × 3 channels)
   → Output (Class Probabilities)
 ```
 
----
-
-## 🎓 Clinical Applications
-
-- **Home Sleep Testing:** Portable device integration
-- **Telemedicine:** Remote screening & monitoring
-- **Clinical Decision Support:** Automated pre-screening
-- **Research:** Large-scale epidemiological studies
-
----
-
-## 🤝 Contributing
-
-Contributions welcome! Areas of interest:
-- Additional physiological signals (EEG, ECG, EMG)
-- Explainability methods (attention visualization)
-- Real-time inference optimization
-- Multi-task learning frameworks
-
----
-
-## 📚 References
-
-1. Berry et al. (2020). *AASM Scoring Manual Version 2.6*
-2. Biswal et al. (2022). *Expert agreement in sleep stage annotation*
-3. Vaswani et al. (2017). *Attention Is All You Need*
 
 ---
 

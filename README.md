@@ -10,7 +10,7 @@
 [![Deep Learning](https://img.shields.io/badge/Deep%20Learning-PyTorch-red.svg)](https://pytorch.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-[Overview](#-overview) • [Features](#-key-features) • [Dataset](#-dataset) • [Models](#-models) • [Results](#-results) • [Quick Start](#-quick-start)
+[Overview](#-overview) • [Features](#-key-features)  • [Quick Start](#-quick-start)
 
 </div>
 

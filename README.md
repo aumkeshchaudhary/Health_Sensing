@@ -18,14 +18,7 @@
 
 ## 🎯 Overview
 
-This project develops an end-to-end **sleep health analytics pipeline** for DeepMedico™, processing overnight physiological recordings to detect abnormal breathing patterns and classify sleep stages. Using state-of-the-art deep learning architectures, we analyze multimodal time-series data from 5 participants to enable clinical-grade sleep disorder screening.
-
-### Why This Matters
-
-- **Sleep disorders affect 50-70M Americans** and are linked to cardiovascular disease, diabetes, and cognitive decline
-- **Manual sleep scoring is expensive** ($1000+ per study) and time-consuming (2-3 hours per patient)
-- **Automated analysis** can democratize access to sleep health diagnostics
-- **This project demonstrates** both the promise and challenges of ML in clinical sleep medicine
+This project develops an end-to-end **sleep health analytics pipeline**, processing overnight physiological recordings to detect abnormal breathing patterns and classify sleep stages. Using state-of-the-art deep learning architectures, we analyze multimodal time-series data from 5 participants to enable clinical-grade sleep disorder screening.
 
 ---
 

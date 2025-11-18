@@ -29,9 +29,9 @@ It includes:
 
 - Model training for:
 
--- Breathing Disorder Detection (Hypopnea / Obstructive Apnea / Normal)
+  - Breathing Disorder Detection (Hypopnea / Obstructive Apnea / Normal)
 
--- Sleep Stage Classification (Wake, REM, N1, N2, N3)
+  - Sleep Stage Classification (Wake, REM, N1, N2, N3)
 
 - Evaluation using Leave-One-Participant-Out (LOSO) cross-validation
 

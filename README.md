@@ -108,10 +108,7 @@ Models implemented:
             │   ├── conv_lstm_model.py         # Conv-LSTM
             │   └── transformer_model.py       # Transformer for sleep staging
             │
-            ├── utils/                         # Helper utilities
-            │   ├── filtering.py               # Signal cleaning filters
-            │   ├── metrics.py                 # Per-class metrics calculation
-            │   └── helpers.py                 # Common functions (if any)
+            ├── utils/                         # Helper utilities 
             │
             ├── Visualizations/                # PDF plots for each participant
             │   ├── AP01_visualization.pdf

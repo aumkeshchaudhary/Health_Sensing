@@ -385,6 +385,9 @@ We use clinical-grade metrics aligned with sleep medicine standards:
 4. **Windowing:** 30-second epochs (standard PSG epoch length)
 5. **Augmentation:** Time warping, jittering for robustness
 
+
+---
+
 ### Model Architecture Highlights
 
 **Transformer Block:**

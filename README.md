@@ -6,9 +6,6 @@
 
 *Automated detection of breathing disorders and sleep stage classification using physiological signals*
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![Deep Learning](https://img.shields.io/badge/Deep%20Learning-PyTorch-red.svg)](https://pytorch.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 [Overview](#-overview) • [Features](#-key-features)  • [Quick Start](#-quick-start)
 
@@ -53,7 +50,7 @@ The project is fully modular, script-based, and matches the requirements given i
 - Overlays flow-event annotations (e.g., Apnea, Hypopnea)
 - Automatically saves PDFs inside Visualizations/
 - Script: vis.py
-- 
+  
 ### 🧪 Dataset Creation
 - Splits signals into 30-second windows with 50% overlap
 - Matches windows to labeled events

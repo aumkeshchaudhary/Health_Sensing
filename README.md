@@ -70,53 +70,59 @@ We analyze three core biomarkers recorded during overnight polysomnography:
 ---
 
 ## 🏗️ Project Structure
+HealthSensingProject/
+│
+├── Data/                          # Raw signals (not tracked in GitHub; large files)
+│   ├── AP01/
+│   ├── AP02/
+│   ├── AP03/
+│   ├── AP04/
+│   └── AP05/
+│
+├── Dataset/                       # Generated datasets (ignored in GitHub)
+│   ├── breathing_windows.npz
+│   ├── breathing_labels.csv
+│   ├── sleep_windows.npz
+│   └── sleep_labels.csv
+│
+├── scripts/                       # All executable Python scripts
+│   ├── vis.py                     # Visualization script for 8-hour plots
+│   ├── create_breathing_dataset.py
+│   ├── create_sleep_dataset.py
+│   ├── train_breathing_model.py
+│   └── train_sleep_model.py
+│
+├── models/                        # Deep learning architectures
+│   ├── cnn_model.py               # 1D CNN
+│   ├── conv_lstm_model.py         # Conv-LSTM
+│   └── transformer_model.py       # Transformer for sleep staging
+│
+├── utils/                         # Helper utilities
+│   ├── filtering.py               # Signal cleaning filters
+│   ├── metrics.py                 # Per-class metrics calculation
+│   └── helpers.py                 # Common functions (if any)
+│
+├── Visualizations/                # PDF plots for each participant
+│   ├── AP01_visualization.pdf
+│   ├── AP02_visualization.pdf
+│   └── ...
+│
+├── breathing_results/             # LOSO results for breathing task
+│   ├── results_cnn_metrics.csv
+│   ├── results_conv_lstm_metrics.csv
+│   └── confusion matrices (if saved)
+│
+├── sleep_results/                 # LOSO results for sleep stage task
+│   ├── results_cnn_sleep_metrics.csv
+│   ├── results_conv_lstm_sleep_metrics.csv
+│   ├── results_transformer_sleep_metrics.csv
+│   └── confusion matrices (PNG)
+│
+├── .gitignore                     # Ignores Data/ and Dataset/ folders
+├── .gitattributes                 # Git LFS configuration
+├── requirements.txt               # Python dependencies
+└── README.md                      # Full project documentation
 
-```
-health-sensing/
-│
-├── data/
-│   ├── raw/                    # Original PSG recordings
-│   ├── processed/              # Cleaned & segmented data
-│   └── annotations/            # Event labels & sleep stages
-│
-├── notebooks/
-│   ├── 01_data_exploration.ipynb
-│   ├── 02_preprocessing.ipynb
-│   ├── 03_model_training.ipynb
-│   └── 04_evaluation.ipynb
-│
-├── src/
-│   ├── preprocessing/
-│   │   ├── signal_cleaner.py
-│   │   ├── feature_extractor.py
-│   │   └── window_generator.py
-│   │
-│   ├── models/
-│   │   ├── cnn_1d.py           # Convolutional architecture
-│   │   ├── conv_lstm.py        # Recurrent hybrid model
-│   │   └── transformer.py      # Attention-based model
-│   │
-│   ├── training/
-│   │   ├── trainer.py
-│   │   ├── loso_validator.py
-│   │   └── metrics.py
-│   │
-│   └── visualization/
-│       ├── plot_signals.py
-│       └── generate_reports.py
-│
-├── results/
-│   ├── models/                 # Trained weights
-│   ├── figures/                # Performance visualizations
-│   └── reports/                # Clinical summaries
-│
-├── configs/
-│   └── model_config.yaml       # Hyperparameters
-│
-├── requirements.txt
-├── README.md
-└── main.py                     # Entry point
-```
 
 ---
 

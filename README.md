@@ -119,8 +119,11 @@ Models implemented:
             ├── Visualizations/                # PDF plots for each participant
             │   ├── AP01_visualization.pdf
             │   ├── AP02_visualization.pdf
-            │   └── ...
-            │
+            │   └── AP02_visualization.pdf
+            │   └── AP03_visualization.pdf
+            |   └── AP04_visualization.pdf
+            |   └── AP05_visualization.pdf
+            |    
             ├── breathing_results/             # LOSO results for breathing task
             │   ├── results_cnn_metrics.csv
             │   ├── results_conv_lstm_metrics.csv
@@ -221,7 +224,7 @@ Metrics computed per class:
     
 ### Visualize Participant
 
-    python vis.py -name Data/AP01
+    python scripts/vis.py -name Data/AP01
 
 
 ### Train Models (LOSO Cross-Validation)

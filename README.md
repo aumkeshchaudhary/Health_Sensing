@@ -127,8 +127,7 @@ Models implemented:
             │   ├── results_transformer_sleep_metrics.csv
             │   └── confusion matrices (PNG)
             │
-            ├── .gitignore                     # Ignores Data/ and Dataset/ folders
-            ├── .gitattributes                 # Git LFS configuration
+            ├── .gitattributes                  # Git LFS configuration
             ├──  requirements.txt               # Python dependencies
             ├──  README.md                      # Full project documentation
             └──  Report.pdf

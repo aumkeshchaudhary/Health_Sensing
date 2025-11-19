@@ -130,7 +130,7 @@ Models implemented:
             ├── .gitattributes                  # Git LFS configuration
             ├──  requirements.txt               # Python dependencies
             ├──  README.md                      # Full project documentation
-            └──  Report.pdf
+            └── 
 ---
 
 ## 🧠 Models & Performance

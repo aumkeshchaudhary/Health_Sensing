@@ -106,7 +106,7 @@ Models implemented:
             │   ├── conv_lstm_model.py         # Conv-LSTM
             │   └── transformer_model.py       # Transformer for sleep staging
             │
-            ├── utils/                         # Helper utilities 
+            ├── utils                          # Helper utilities 
             │
             ├── Visualizations/                # PDF plots for each participant
             │   ├── AP01_visualization.pdf
@@ -129,9 +129,9 @@ Models implemented:
             │
             ├── .gitignore                     # Ignores Data/ and Dataset/ folders
             ├── .gitattributes                 # Git LFS configuration
-            ├── requirements.txt               # Python dependencies
-            └── README.md                      # Full project documentation
-
+            ├──  requirements.txt               # Python dependencies
+            ├──  README.md                      # Full project documentation
+            └──  Report.pdf
 ---
 
 ## 🧠 Models & Performance

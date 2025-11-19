@@ -106,7 +106,6 @@ Models implemented:
             │   ├── conv_lstm_model.py         # Conv-LSTM
             │   └── transformer_model.py       # Transformer for sleep staging
             │
-            ├── utils                          # Helper utilities 
             │
             ├── Visualizations/                # PDF plots for each participant
             │   ├── AP01_visualization.pdf
@@ -127,10 +126,11 @@ Models implemented:
             │   ├── results_transformer_sleep_metrics.csv
             │   └── confusion matrices (PNG)
             │
-            ├── .gitattributes                  # Git LFS configuration
+            |──  .gitattributes                 # Git LFS configuration
+            ├──  Health_Sensing_Report.pdf      # Full Report
             ├──  requirements.txt               # Python dependencies
             ├──  README.md                      # Full project documentation
-            └── 
+            └──  utils                          # Helper utilities 
 ---
 
 ## 🧠 Models & Performance
